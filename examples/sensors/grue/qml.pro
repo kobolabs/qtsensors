@@ -1,6 +1,9 @@
 TEMPLATE = app
-TARGET = grue
+TARGET = grue_app
 QT += quick
+
+# Avoid going to release/debug subdirectory
+win32: DESTDIR = ./
 
 SOURCES = main.cpp
 
