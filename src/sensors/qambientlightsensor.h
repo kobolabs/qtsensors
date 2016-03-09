@@ -58,7 +58,12 @@ public:
     enum LightLevel {
         Undefined = 0,
         Dark,
+        Starlight,
+        Moonlight,
+        Dusk,
         Twilight,
+        Sunset,
+        Overcast,
         Light,
         Bright,
         Sunny
