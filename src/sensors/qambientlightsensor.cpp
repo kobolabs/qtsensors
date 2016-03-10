@@ -93,7 +93,12 @@ void QAmbientLightReading::setLightLevel(QAmbientLightReading::LightLevel lightL
 {
     switch (lightLevel) {
     case Dark:
+    case Starlight:
+    case Moonlight:
+    case Dusk:
     case Twilight:
+    case Sunset:
+    case Overcast:
     case Light:
     case Bright:
     case Sunny:
