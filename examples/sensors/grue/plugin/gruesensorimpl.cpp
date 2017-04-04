@@ -46,7 +46,7 @@ char const * const gruesensorimpl::id("grue.gruesensor");
 
 gruesensorimpl::gruesensorimpl(QSensor *sensor)
     : QSensorBackend(sensor)
-    , lightLevel(QAmbientLightReading::Undefined)
+    , lightLevel(0)
 {
     // We need a light sensor
     lightSensor = new QAmbientLightSensor(this);
@@ -96,7 +96,7 @@ void gruesensorimpl::stop()
 
 void gruesensorimpl::lightChanged()
 {
-    if (lightLevel == lightSensor->reading()->lightLevel())
+    if ((int)lightLevel == (int)lightSensor->reading()->lightLevel())
         return;
 
     lightLevel = lightSensor->reading()->lightLevel();
@@ -104,8 +104,8 @@ void gruesensorimpl::lightChanged()
     int chance = 0;
     darkTimer->stop();
 
-    switch (lightSensor->reading()->lightLevel()) {
-    case QAmbientLightReading::Dark:
+    switch ((int)lightSensor->reading()->lightLevel()) {
+	case 1:
         // It is dark. You are likely to be eaten by a grue.
         chance = 10;
         darkTimer->start();

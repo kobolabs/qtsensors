@@ -81,33 +81,17 @@ IMPLEMENT_READING(QAmbientLightReading)
     \sa {QAmbientLightReading Units}
 */
 
-QAmbientLightReading::LightLevel QAmbientLightReading::lightLevel() const
+float QAmbientLightReading::lightLevel() const
 {
-    return static_cast<LightLevel>(d->lightLevel);
+    return d->lightLevel;
 }
 
 /*!
     Sets the ambient light level to \a lightLevel.
 */
-void QAmbientLightReading::setLightLevel(QAmbientLightReading::LightLevel lightLevel)
+void QAmbientLightReading::setLightLevel(float lightLevel)
 {
-    switch (lightLevel) {
-    case Dark:
-    case Starlight:
-    case Moonlight:
-    case Dusk:
-    case Twilight:
-    case Sunset:
-    case Overcast:
-    case Light:
-    case Bright:
-    case Sunny:
-        d->lightLevel = lightLevel;
-        break;
-    default:
-        d->lightLevel = Undefined;
-        break;
-    }
+    d->lightLevel = lightLevel;
 }
 
 // =====================================================================

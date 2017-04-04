@@ -123,7 +123,7 @@ QmlAmbientLightSensorReading::~QmlAmbientLightSensorReading()
     \endcode
 */
 
-QAmbientLightReading::LightLevel QmlAmbientLightSensorReading::lightLevel() const
+float QmlAmbientLightSensorReading::lightLevel() const
 {
     return m_lightLevel;
 }
@@ -135,8 +135,8 @@ QSensorReading *QmlAmbientLightSensorReading::reading() const
 
 void QmlAmbientLightSensorReading::readingUpdate()
 {
-    QAmbientLightReading::LightLevel ll = m_sensor->reading()->lightLevel();
-    if (m_lightLevel != ll) {
+    int ll = m_sensor->reading()->lightLevel();
+    if ((int)m_lightLevel != ll) {
         m_lightLevel = ll;
         Q_EMIT lightLevelChanged();
     }

@@ -63,7 +63,7 @@ public:
     {
     }
 
-    int lightLevel;
+    float lightLevel;
 };
 
 QT_END_NAMESPACE

@@ -51,26 +51,11 @@ class QAmbientLightReadingPrivate;
 class Q_SENSORS_EXPORT QAmbientLightReading : public QSensorReading
 {
     Q_OBJECT
-    Q_ENUMS(LightLevel)
-    Q_PROPERTY(LightLevel lightLevel READ lightLevel)
+    Q_PROPERTY(float lightLevel READ lightLevel)
     DECLARE_READING(QAmbientLightReading)
 public:
-    enum LightLevel {
-        Undefined = 0,
-        Dark,
-        Starlight,
-        Moonlight,
-        Dusk,
-        Twilight,
-        Sunset,
-        Overcast,
-        Light,
-        Bright,
-        Sunny
-    };
-
-    LightLevel lightLevel() const;
-    void setLightLevel(LightLevel lightLevel);
+    float lightLevel() const;
+    void setLightLevel(float lightLevel);
 };
 
 class Q_SENSORS_EXPORT QAmbientLightFilter : public QSensorFilter

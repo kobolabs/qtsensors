@@ -70,7 +70,7 @@ private:
     QAmbientLightSensor *lightSensor;
     QTimer *darkTimer;
     QTime timer;
-    QAmbientLightReading::LightLevel lightLevel;
+    float lightLevel;
 };
 
 #endif

@@ -66,13 +66,13 @@ private:
 class QmlAmbientLightSensorReading : public QmlSensorReading
 {
     Q_OBJECT
-    Q_PROPERTY(QAmbientLightReading::LightLevel lightLevel READ lightLevel NOTIFY lightLevelChanged)
+    Q_PROPERTY(float lightLevel READ lightLevel NOTIFY lightLevelChanged)
 public:
 
     explicit QmlAmbientLightSensorReading(QAmbientLightSensor *sensor);
     ~QmlAmbientLightSensorReading();
 
-    QAmbientLightReading::LightLevel lightLevel() const;
+    float lightLevel() const;
 
 Q_SIGNALS:
     void lightLevelChanged();
@@ -81,7 +81,7 @@ private:
     QSensorReading *reading() const Q_DECL_OVERRIDE;
     void readingUpdate() Q_DECL_OVERRIDE;
     QAmbientLightSensor *m_sensor;
-    QAmbientLightReading::LightLevel m_lightLevel;
+    float m_lightLevel;
 };
 
 QT_END_NAMESPACE
